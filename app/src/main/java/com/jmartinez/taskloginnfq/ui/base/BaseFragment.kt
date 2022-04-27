@@ -7,10 +7,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.viewbinding.ViewBinding
 import com.jmartinez.taskloginnfq.network.RemoteDataSource
 import com.jmartinez.taskloginnfq.repository.BaseRepository
 import com.jmartinez.taskloginnfq.response.UserPreferences
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.launch
 
 abstract class BaseFragment<VM:ViewModel,B:ViewBinding,R:BaseRepository> :Fragment(){
     protected lateinit var userPreferences: UserPreferences
@@ -27,6 +30,7 @@ abstract class BaseFragment<VM:ViewModel,B:ViewBinding,R:BaseRepository> :Fragme
 
         val factory = ViewModelFactory(getFragmentRepository())
         viewModel = ViewModelProvider(this,factory).get(getViewModel())
+        lifecycleScope.launch { userPreferences.accessToken.first() }
         return binding.root
 
     }

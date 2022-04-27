@@ -11,6 +11,8 @@ sealed class Resource<out T> {
         val errorBody:ResponseBody?
     ):Resource<Nothing>()
 
+    object loading : Resource<Nothing>()
+
 
 
 

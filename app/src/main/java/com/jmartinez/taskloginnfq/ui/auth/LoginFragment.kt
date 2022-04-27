@@ -24,8 +24,8 @@ import kotlinx.coroutines.launch
 
 class LoginFragment : BaseFragment<AuthViewModel,FragmentLoginBinding,AuthRepository>() {
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         binding.progressbar.visible(false)
         binding.BtnLogin.enable(false)
         viewModel.loginResponse.observe(viewLifecycleOwner, Observer {
@@ -33,8 +33,8 @@ class LoginFragment : BaseFragment<AuthViewModel,FragmentLoginBinding,AuthReposi
             when (it){
                 is Resource.Success->{
                     Toast.makeText(requireContext(), it.toString(), Toast.LENGTH_SHORT).show()
-                        viewModel.saveAuthToken(it.value.token,it.value.refreshToken)
-                        requireActivity().startNewActivity(HomeActivity::class.java)
+                    viewModel.saveAuthToken(it.value.token,it.value.refreshToken)
+                    requireActivity().startNewActivity(HomeActivity::class.java)
 
 
                 }
@@ -52,10 +52,7 @@ class LoginFragment : BaseFragment<AuthViewModel,FragmentLoginBinding,AuthReposi
             val password = binding.EtPassword.text.toString().trim()
             viewModel.login(username,password)
             binding.progressbar.visible(true)
-
-
-
-        }
+    }
     }
 
     override fun getViewModel()= AuthViewModel::class.java
