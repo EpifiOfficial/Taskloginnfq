@@ -1,4 +1,4 @@
-package com.jmartinez.taskloginnfq
+package com.jmartinez.taskloginnfq.auth
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

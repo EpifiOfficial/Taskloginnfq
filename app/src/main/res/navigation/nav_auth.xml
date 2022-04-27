@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.jmartinez.taskloginnfq.LoginFragment"
+        android:name="com.jmartinez.taskloginnfq.auth.LoginFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_login" />
 
