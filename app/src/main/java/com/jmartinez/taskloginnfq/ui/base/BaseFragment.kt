@@ -10,9 +10,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
 import com.jmartinez.taskloginnfq.network.RemoteDataSource
 import com.jmartinez.taskloginnfq.repository.BaseRepository
+import com.jmartinez.taskloginnfq.response.UserPreferences
 
 abstract class BaseFragment<VM:ViewModel,B:ViewBinding,R:BaseRepository> :Fragment(){
-
+    protected lateinit var userPreferences: UserPreferences
     protected lateinit var binding: B
     protected lateinit var viewModel: VM
     protected val remoteDataSource = RemoteDataSource()
@@ -21,6 +22,7 @@ abstract class BaseFragment<VM:ViewModel,B:ViewBinding,R:BaseRepository> :Fragme
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        userPreferences = UserPreferences(requireContext())
         binding = getFragmentBinding(inflater,container)
 
         val factory = ViewModelFactory(getFragmentRepository())

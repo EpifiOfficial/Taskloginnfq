@@ -29,6 +29,10 @@ class AuthViewModel(
         _loginResponse.value = repository.login(username,password)
 
     }
+    fun saveAuthToken(token:String,refreshToken:String)=viewModelScope.launch{
+        repository.saveAuthToken(token,refreshToken)
+
+    }
 
 
 }

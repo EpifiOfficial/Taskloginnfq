@@ -1,12 +1,8 @@
-package com.jmartinez.taskloginnfq
+package com.jmartinez.taskloginnfq.ui.home
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-
-import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.launch
-
-import javax.inject.Inject
+import com.jmartinez.taskloginnfq.R
 
 class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
