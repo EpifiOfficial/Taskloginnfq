@@ -10,12 +10,13 @@
 
     <ImageView
         android:id="@+id/IvIcon"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="128dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/progressbar"
+        />
 
     <TextView
         android:id="@+id/TvEmail"
@@ -26,7 +27,9 @@
         android:layout_marginLeft="32dp"
         android:text="@string/email"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/IvIcon" />
+        app:layout_constraintTop_toBottomOf="@id/IvIcon"
+        android:layout_marginTop="10dp"
+        />
 
     <EditText
         android:id="@+id/EtEmail"
@@ -42,7 +45,7 @@
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TvEmail" />
+        app:layout_constraintTop_toBottomOf="@id/TvEmail" />
 
     <TextView
         android:id="@+id/TvPasssword"
@@ -54,7 +57,7 @@
         android:layout_marginTop="16dp"
         android:text="@string/password"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/EtEmail" />
+        app:layout_constraintTop_toBottomOf="@id/EtEmail" />
 
     <EditText
         android:id="@+id/EtPassword"
@@ -93,10 +96,12 @@
         android:id="@+id/progressbar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="invisible"
+        android:layout_marginTop="10dp"
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

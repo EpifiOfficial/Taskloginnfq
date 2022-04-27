@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
 
         val userPreferences = UserPreferences(this)
         userPreferences.accessToken.asLiveData().observe(this, Observer {
-            Toast.makeText(this, it?:"Token is null", Toast.LENGTH_SHORT).show()
+            //Toast.makeText(this, it?:"Token is null", Toast.LENGTH_SHORT).show()
             val activity = if (it == null) AuthActivity::class.java else HomeActivity::class.java
             startNewActivity(activity)
         })

@@ -9,6 +9,7 @@ import androidx.lifecycle.lifecycleScope
 import com.google.android.material.snackbar.Snackbar
 import com.jmartinez.taskloginnfq.network.Resource
 import com.jmartinez.taskloginnfq.ui.auth.LoginFragment
+import com.jmartinez.taskloginnfq.ui.base.BaseFragment
 import kotlinx.coroutines.launch
 
 
@@ -38,11 +39,7 @@ fun View.snackbar(message: String, action: (() -> Unit)? = null) {
     snackbar.show()
 }
 
-/*fun Fragment.logout() = lifecycleScope.launch {
-    if (activity is HomeActivity) {
-        (activity as HomeActivity).performLogout()
-    }
-}*/
+
 
 fun Fragment.handleApiError(
     failure: Resource.Failure,
@@ -57,13 +54,12 @@ fun Fragment.handleApiError(
             if (this is LoginFragment) {
                 requireView().snackbar("You've entered incorrect email or password")
             } else {
-               // logout()
+                (this as BaseFragment<*,*,*>).logout()
             }
         }
         else -> {
             val error = failure.errorBody?.string().toString()
             requireView().snackbar(error)
-            Toast.makeText(context, "Aqui", Toast.LENGTH_SHORT).show()
         }
     }
 }

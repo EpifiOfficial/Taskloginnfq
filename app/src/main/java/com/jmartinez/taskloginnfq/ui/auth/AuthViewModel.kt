@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.jmartinez.taskloginnfq.network.Resource
 import com.jmartinez.taskloginnfq.repository.AuthRepository
 import com.jmartinez.taskloginnfq.response.LoginResponse
+import com.jmartinez.taskloginnfq.ui.base.BaseViewModel
 import dagger.hilt.android.scopes.ViewModelScoped
 import kotlinx.coroutines.launch
 
@@ -15,7 +16,7 @@ class AuthViewModel(
     private val repository: AuthRepository
 
 
-):ViewModel() {
+):BaseViewModel(repository) {
     private val _loginResponse :MutableLiveData<Resource<LoginResponse>> = MutableLiveData()
     val loginResponse : LiveData<Resource<LoginResponse>>
         get() = _loginResponse
@@ -27,9 +28,10 @@ class AuthViewModel(
 
     )=viewModelScope.launch{
         _loginResponse.value = repository.login(username,password)
+        _loginResponse.value = Resource.loading
 
     }
-    fun saveAuthToken(token:String,refreshToken:String)=viewModelScope.launch{
+    suspend fun saveAuthToken(token:String,refreshToken:String){
         repository.saveAuthToken(token,refreshToken)
 
     }

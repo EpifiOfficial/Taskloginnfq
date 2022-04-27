@@ -1,6 +1,7 @@
 package com.jmartinez.taskloginnfq.repository
 
 import com.jmartinez.taskloginnfq.network.Resource
+import com.jmartinez.taskloginnfq.network.UserApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.HttpException
@@ -27,4 +28,13 @@ abstract class BaseRepository {
         }
 
     }
+
+
+    suspend fun logout(api:UserApi)=safeApiCall{
+        api.logOut()
+
+    }
+
+
+
 }

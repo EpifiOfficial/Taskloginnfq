@@ -7,11 +7,12 @@ import androidx.lifecycle.viewModelScope
 import com.jmartinez.taskloginnfq.network.Resource
 import com.jmartinez.taskloginnfq.repository.UserRepository
 import com.jmartinez.taskloginnfq.response.UserResponse
+import com.jmartinez.taskloginnfq.ui.base.BaseViewModel
 import kotlinx.coroutines.launch
 
 class HomeViewModel(
     private val repository:UserRepository
-):ViewModel() {
+):BaseViewModel(repository) {
 
     private val _user:MutableLiveData<Resource<UserResponse>> = MutableLiveData()
     val user:LiveData<Resource<UserResponse>>

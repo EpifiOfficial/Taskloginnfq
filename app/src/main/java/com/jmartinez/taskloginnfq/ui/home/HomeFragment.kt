@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import com.bumptech.glide.Glide
 import com.jmartinez.taskloginnfq.databinding.FragmentHomeBinding
 import com.jmartinez.taskloginnfq.network.Resource
 import com.jmartinez.taskloginnfq.network.UserApi
@@ -21,21 +22,27 @@ class HomeFragment : BaseFragment<HomeViewModel,FragmentHomeBinding,UserReposito
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.progressbar.visible(false)
+        binding.progressbar.visible(true)
 
         viewModel.getUser()
         viewModel.user.observe(viewLifecycleOwner, Observer {
+
             when(it){
                 is Resource.Success->{
                     updateUI(it.value)
-                    binding.progressbar.visible(false)
+
                 }
                 is Resource.loading->{
-                    binding.progressbar.visible(true)
+
+                }
+                is Resource.Failure->{
 
                 }
             }
         })
+        binding.BtnLogout.setOnClickListener {
+            logout()
+        }
     }
 
 
@@ -54,10 +61,13 @@ class HomeFragment : BaseFragment<HomeViewModel,FragmentHomeBinding,UserReposito
     private fun updateUI(user: UserResponse) {
 
         with(binding){
+            Glide.with(this@HomeFragment).load(user.image.toString()).into(IvUser);
 
             TvName.text = user.firstName
             TvAddress.text = user.address
             TvPhoneNumber.text = user.phone
+            binding.progressbar.visibility = View.GONE
+
 
         }
     }
