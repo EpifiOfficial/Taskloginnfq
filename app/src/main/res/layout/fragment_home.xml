@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.jmartinez.taskloginnfq.HomeFragment">
+
+    <Button
+        android:id="@+id/BtnLogout"
+        style="@style/ButtonPrimary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
+        android:text="Logout" />
+
+    <ImageView
+        android:id="@+id/IvUser"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/BtnLogout"
+        android:layout_marginTop="20dp"
+        />
+    <TextView
+        android:id="@+id/TvName"
+        android:textSize="22sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="name"
+        android:textStyle="bold"
+        android:layout_below="@id/IvUser"
+        android:layout_centerHorizontal="true"
+        />
+    <TextView
+        android:id="@+id/TvAddress"
+        android:textSize="22sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Address"
+        android:textStyle="bold"
+        android:layout_below="@id/TvName"
+        android:layout_centerHorizontal="true"
+        />
+    <TextView
+        android:id="@+id/TvPhoneNumber"
+        android:textSize="22sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PhoneNumber"
+        android:textStyle="bold"
+        android:layout_below="@id/TvAddress"
+        android:layout_centerHorizontal="true"
+        />
+
+    <ProgressBar
+        android:id="@+id/progressbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        />
+
+</RelativeLayout>
