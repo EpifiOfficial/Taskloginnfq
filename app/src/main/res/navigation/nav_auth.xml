@@ -7,14 +7,10 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.jmartinez.myapplication.ui.auth.LoginFragment"
+        android:name="com.jmartinez.taskloginnfq.LoginFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_login" />
 
-    <fragment
-        android:id="@+id/registrationFragment"
-        android:name="com.jmartinez.myapplication.ui.auth.RegisterFragment"
-        android:label="fragment_register"
-        tools:layout="@layout/fragment_register" />
+
 
 </navigation>
