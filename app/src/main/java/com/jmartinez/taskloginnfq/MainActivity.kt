@@ -3,7 +3,8 @@ package com.jmartinez.taskloginnfq
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.jmartinez.taskloginnfq.auth.AuthActivity
+import com.jmartinez.taskloginnfq.ui.auth.AuthActivity
+import dagger.hilt.android.AndroidEntryPoint
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

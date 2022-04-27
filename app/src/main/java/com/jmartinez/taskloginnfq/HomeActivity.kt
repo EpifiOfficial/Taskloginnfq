@@ -1,4 +1,18 @@
 package com.jmartinez.taskloginnfq
 
-class HomeActivity {
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
+
+import javax.inject.Inject
+
+class HomeActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_home)
+    }
+
+
 }
